@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color(0xff9e58b1),
+        primaryColor: Color(0xff090C0B),
       ),
       //home: MyWordPage(),
-      home: MyFormPage(),
+      home: MyWordPage(),
       //home:MyListPage()
     );
   }
