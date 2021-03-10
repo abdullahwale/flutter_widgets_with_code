@@ -9,7 +9,13 @@ class Home extends StatefulWidget {
 
 class HomeState extends State<Home> {
   int radioValue = 0;
-  void handleRadioValueChanged(int value) {}
+  void handleRadioValueChanged(int value) {
+    radioValue = value;
+    setState(() {
+      //print(radioValue);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,18 +62,42 @@ class HomeState extends State<Home> {
                     value: 0,
                     groupValue: radioValue,
                     onChanged: handleRadioValueChanged),
+                Text(
+                  "Pluto",
+                  style: new TextStyle(color: Colors.white30),
+                ),
                 Radio<int>(
                     activeColor: Colors.brown,
                     value: 1,
                     groupValue: radioValue,
                     onChanged: handleRadioValueChanged),
+                Text(
+                  "Mars",
+                  style: new TextStyle(color: Colors.white30),
+                ),
                 Radio<int>(
                     activeColor: Colors.brown,
                     value: 2,
                     groupValue: radioValue,
                     onChanged: handleRadioValueChanged),
+                Text(
+                  "Venus",
+                  style: new TextStyle(color: Colors.white30),
+                ),
               ],
             ),
+            //Result text
+            Padding(padding: new EdgeInsets.all(15.0)),
+
+            Text(
+              _weightController.text.isEmpty
+                  ? "Please enter weight"
+                  : _planetName + " lbs",
+              style: new TextStyle(
+                  color: Colors.white,
+                  fontSize: 19.4,
+                  fontWeight: FontWeight.w500),
+            )
           ],
         ),
       ),
