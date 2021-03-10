@@ -8,6 +8,8 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  int radioValue = 0;
+  void handleRadioValueChanged(int value) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,18 +54,18 @@ class HomeState extends State<Home> {
                 Radio<int>(
                     activeColor: Colors.brown,
                     value: 0,
-                    groupValue: null,
-                    onChanged: null),
+                    groupValue: radioValue,
+                    onChanged: handleRadioValueChanged),
                 Radio<int>(
                     activeColor: Colors.brown,
                     value: 1,
-                    groupValue: null,
-                    onChanged: null),
+                    groupValue: radioValue,
+                    onChanged: handleRadioValueChanged),
                 Radio<int>(
                     activeColor: Colors.brown,
                     value: 2,
-                    groupValue: null,
-                    onChanged: null),
+                    groupValue: radioValue,
+                    onChanged: handleRadioValueChanged),
               ],
             ),
           ],
