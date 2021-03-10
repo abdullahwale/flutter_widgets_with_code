@@ -21,7 +21,18 @@ class HomeState extends State<Home> {
         backgroundColor: Colors.black38,
       ),
       backgroundColor: Colors.blueGrey,
-      body:  Container();
+      body:  Container(
+        alignment: Alignment.center,
+        child: ListView(
+          padding: const EdgeInsets.all(2.5),
+          children: [
+            Image.asset('images/planet.png',
+            height: 133.0,
+            width: 280.0,),
+          ],
+        ),
+
+      );
     );
   }
 
