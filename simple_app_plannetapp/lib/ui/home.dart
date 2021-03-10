@@ -21,7 +21,7 @@ class HomeState extends State<Home> {
         backgroundColor: Colors.black38,
       ),
       backgroundColor: Colors.blueGrey,
-      body:  
+      body:  Container();
     );
   }
 
