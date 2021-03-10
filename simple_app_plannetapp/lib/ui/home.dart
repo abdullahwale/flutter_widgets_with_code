@@ -8,10 +8,39 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  final TextEditingController _weightController = new TextEditingController();
   int radioValue = 0;
+  bool checkboxValueA = true;
+  bool checkboxValueB = false;
+  bool checkboxValueC;
+  bool switchValue = false;
+  double _finalResult = 0.0;
+  String _planetName = "";
   void handleRadioValueChanged(int value) {
     radioValue = value;
     setState(() {
+      switch (radioValue) {
+        case 0:
+          _finalResult = calculateWeight(_weightController.text, 0.06);
+          _planetName =
+              "Your weight on Pluto is ${_finalResult.toStringAsFixed(1)}";
+          break;
+        case 1:
+          _finalResult = calculateWeight(_weightController.text, 0.38);
+          _planetName =
+              "Your weight on Mars is ${_finalResult.toStringAsFixed(1)}";
+
+          break;
+        case 2:
+          _finalResult = calculateWeight(_weightController.text, 0.91);
+          _planetName =
+              "Your Venus on Pluto is ${_finalResult.toStringAsFixed(1)}";
+
+          break;
+        default:
+          print("Nothing selected!");
+      }
+
       //print(radioValue);
     });
   }
@@ -41,7 +70,7 @@ class HomeState extends State<Home> {
               child: Column(
                 children: [
                   TextField(
-                    controller: null,
+                    controller: _weightController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: 'What is your Weight on Earth',
@@ -102,5 +131,14 @@ class HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  double calculateWeight(String weight, double multiplier) {
+    if (int.parse(weight).toString().isNotEmpty && int.parse(weight) > 0) {
+      return int.parse(weight) * multiplier;
+    } else {
+      print("Wrong!");
+      return int.parse("180") * 0.38; // give a default weight! Be creative!
+    }
   }
 }
