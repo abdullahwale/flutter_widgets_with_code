@@ -93,7 +93,7 @@ class HomeState extends State<Home> {
                     onChanged: handleRadioValueChanged),
                 Text(
                   "Pluto",
-                  style: new TextStyle(color: Colors.white30),
+                  style: TextStyle(color: Colors.white30),
                 ),
                 Radio<int>(
                     activeColor: Colors.brown,
@@ -111,18 +111,18 @@ class HomeState extends State<Home> {
                     onChanged: handleRadioValueChanged),
                 Text(
                   "Venus",
-                  style: new TextStyle(color: Colors.white30),
+                  style: TextStyle(color: Colors.white30),
                 ),
               ],
             ),
             //Result text
-            Padding(padding: new EdgeInsets.all(15.0)),
+            Padding(padding: EdgeInsets.all(15.0)),
 
             Text(
               _weightController.text.isEmpty
                   ? "Please enter weight"
                   : _planetName + " lbs",
-              style: new TextStyle(
+              style: TextStyle(
                   color: Colors.white,
                   fontSize: 19.4,
                   fontWeight: FontWeight.w500),
