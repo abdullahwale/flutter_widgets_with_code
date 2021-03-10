@@ -43,6 +43,29 @@ class HomeState extends State<Home> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Radio<int>(
+                    activeColor: Colors.brown,
+                    value: 0,
+                    groupValue: null,
+                    onChanged: null),
+                Radio<int>(
+                    activeColor: Colors.brown,
+                    value: 1,
+                    groupValue: null,
+                    onChanged: null),
+                Radio<int>(
+                    activeColor: Colors.brown,
+                    value: 2,
+                    groupValue: null,
+                    onChanged: null),
+              ],
+            ),
           ],
         ),
       ),
