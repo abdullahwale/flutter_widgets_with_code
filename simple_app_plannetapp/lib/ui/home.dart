@@ -8,7 +8,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  final TextEditingController _weightController = new TextEditingController();
+  final TextEditingController _weightController = TextEditingController();
 
   bool checkboxValueA = true;
   bool checkboxValueB = false;
@@ -20,8 +20,8 @@ class HomeState extends State<Home> {
 
   void handleRadioValueChanged(int value) {
     /*
-    Source: https://www.livescience.com/33356-weight-on-planets-mars-moon.html
-      Mercury: 0.38
+ Source: https://www.livescience.com/33356-weight-on-planets-mars-moon.html
+ Mercury: 0.38
 Venus: 0.91
 Earth: 1.00
 Mars: 0.38

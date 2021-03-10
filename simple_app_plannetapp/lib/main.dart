@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import './ui/home.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(MaterialApp(
     title: 'Weight on Planet X',
-    home: new Home(),
+    home: Home(),
   ));
 }
