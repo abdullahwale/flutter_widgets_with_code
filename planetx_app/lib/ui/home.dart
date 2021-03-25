@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  State<StatefulWidget> createState() {
+    return new HomeState();
+  }
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   final TextEditingController _weightController = new TextEditingController();
 
   bool checkboxValueA = true;
@@ -15,96 +17,6 @@ class _HomeState extends State<Home> {
   bool switchValue = false;
   double _finalResult = 0.0;
   String _planetName = "";
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Weight On Planet X"),
-        centerTitle: true,
-        backgroundColor: Colors.black38,
-      ),
-      backgroundColor: Colors.blueGrey,
-      body: Container(
-        alignment: Alignment.topCenter,
-        child: ListView(
-          padding: const EdgeInsets.all(1.5),
-          children: <Widget>[
-            Image.asset(
-              'images/planet.png',
-              height: 133.0,
-              width: 200.0,
-            ),
-            Container(
-              margin: const EdgeInsets.all(3.0),
-              alignment: Alignment.center,
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                    controller: null, //_weightController
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        labelText: 'Your Weight on Earth',
-                        hintText: 'In pounds',
-                        icon: Icon(Icons.person_outline)),
-                  ),
-
-                  Padding(padding: EdgeInsets.all(5.0)),
-                  //three toggle buttons
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      //radiobuttons go here
-                      Radio<int>(
-                          activeColor: Colors.brown,
-                          value: 0,
-                          groupValue: radioValue, //radioValue
-                          onChanged: handleRadioValueChanged),
-                      //handleRadioValueChanged
-                      Text(
-                        "Pluto",
-                        style: new TextStyle(color: Colors.white30),
-                      ),
-                      Radio<int>(
-                          activeColor: Colors.red,
-                          value: 1,
-                          groupValue: radioValue, //radioValue
-                          onChanged: handleRadioValueChanged),
-                      //handleRadioValueChanged
-                      Text(
-                        "Mars",
-                        style: new TextStyle(color: Colors.white30),
-                      ),
-                      Radio<int>(
-                          activeColor: Colors.orangeAccent,
-                          value: 2,
-                          groupValue: radioValue, //radioValue
-                          onChanged: handleRadioValueChanged),
-                      Text(
-                        "Venus",
-                        style: TextStyle(color: Colors.white30),
-                      ),
-                    ],
-                  ),
-
-                  //Result text
-                  Padding(padding: EdgeInsets.all(15.0)),
-
-                  Text(
-                    "Text",
-                    // _weightController.text.isEmpty ? "Please enter weight" : _planetName +" lbs",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 19.4,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   void handleRadioValueChanged(int value) {
     /*
@@ -136,7 +48,7 @@ Pluto: 0.06
         case 2:
           _finalResult = calculateWeight(_weightController.text, 0.91);
           _planetName =
-              "Your Venus on Pluto is ${_finalResult.toStringAsFixed(1)}";
+              "Your Weight on Venus is ${_finalResult.toStringAsFixed(1)}";
 
           break;
         default:
@@ -145,6 +57,96 @@ Pluto: 0.06
 
 //      print("Value is ${radioValue.toString()}");
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Weight On Planet X"),
+        centerTitle: true,
+        backgroundColor: Colors.black38,
+      ),
+      backgroundColor: Colors.blueGrey,
+      body: new Container(
+        alignment: Alignment.topCenter,
+        child: new ListView(
+          padding: const EdgeInsets.all(1.5),
+          children: <Widget>[
+            new Image.asset(
+              'images/planet.png',
+              height: 133.0,
+              width: 200.0,
+            ),
+            new Container(
+              margin: const EdgeInsets.all(3.0),
+              alignment: Alignment.center,
+              child: new Column(
+                children: <Widget>[
+                  new TextField(
+                    controller: _weightController,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        labelText: 'Your Weight on Earth',
+                        hintText: 'In pounds',
+                        icon: new Icon(Icons.person_outline)),
+                  ),
+
+                  new Padding(padding: new EdgeInsets.all(5.0)),
+                  //three toggle buttons
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      //radiobuttons go here
+                      new Radio<int>(
+                          activeColor: Colors.brown,
+                          value: 0,
+                          groupValue: radioValue,
+                          onChanged: handleRadioValueChanged),
+                      new Text(
+                        "Pluto",
+                        style: new TextStyle(color: Colors.white30),
+                      ),
+                      new Radio<int>(
+                          activeColor: Colors.red,
+                          value: 1,
+                          groupValue: radioValue,
+                          onChanged: handleRadioValueChanged),
+                      new Text(
+                        "Mars",
+                        style: new TextStyle(color: Colors.white30),
+                      ),
+                      new Radio<int>(
+                          activeColor: Colors.orangeAccent,
+                          value: 2,
+                          groupValue: radioValue,
+                          onChanged: handleRadioValueChanged),
+                      new Text(
+                        "Venus",
+                        style: new TextStyle(color: Colors.white30),
+                      ),
+                    ],
+                  ),
+
+                  //Result text
+                  new Padding(padding: new EdgeInsets.all(15.0)),
+
+                  new Text(
+                    _weightController.text.isEmpty
+                        ? "Please enter weight"
+                        : _planetName + " lbs",
+                    style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 19.4,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   double calculateWeight(String weight, double multiplier) {
