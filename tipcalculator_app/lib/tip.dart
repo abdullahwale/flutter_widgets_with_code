@@ -26,7 +26,7 @@ class TipState extends State<Tip> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: 40),
+              margin: EdgeInsets.only(bottom: 50),
               child: Text(
                 "Tip Calculator",
                 style: TextStyle(fontSize: 40, color: Colors.black),
@@ -43,7 +43,8 @@ class TipState extends State<Tip> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       labelText: "Bill Amount",
-                      prefixIcon: Icon(Icons.monetization_on),
+                      hintText: "Please Enter your bill amount",
+                      prefixIcon: Icon(Icons.monetization_on_outlined),
                       suffixIcon: GestureDetector(
                           onTap: reset, child: Icon(Icons.clear_all))),
                   onChanged: textChange,
