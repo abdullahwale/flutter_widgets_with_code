@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Tip Calculator',
-      theme: new ThemeData(primaryColor: Colors.black, fontFamily: "Satisfy"),
+      theme: ThemeData(primaryColor: Colors.black, fontFamily: "Satisfy"),
       home: Tip(),
     );
   }
