@@ -6,7 +6,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TextEditingController _weightController = new TextEditingController();
+
+  bool checkboxValueA = true;
+  bool checkboxValueB = false;
+  bool checkboxValueC;
   int radioValue = 0;
+  bool switchValue = false;
+  double _finalResult = 0.0;
+  String _planetName = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,5 +106,44 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void handleRadioValueChanged(int value) {}
+  void handleRadioValueChanged(int value) {
+    /*
+    Source: https://www.livescience.com/33356-weight-on-planets-mars-moon.html
+      Mercury: 0.38
+Venus: 0.91
+Earth: 1.00
+Mars: 0.38
+Jupiter: 2.34
+Saturn: 1.06
+Uranus: 0.92
+Neptune: 1.19
+Pluto: 0.06
+     */
+    setState(() {
+      radioValue = value;
+      switch (radioValue) {
+        case 0:
+          _finalResult = calculateWeight(_weightController.text, 0.06);
+          _planetName =
+              "Your weight on Pluto is ${_finalResult.toStringAsFixed(1)}";
+          break;
+        case 1:
+          _finalResult = calculateWeight(_weightController.text, 0.38);
+          _planetName =
+              "Your weight on Mars is ${_finalResult.toStringAsFixed(1)}";
+
+          break;
+        case 2:
+          _finalResult = calculateWeight(_weightController.text, 0.91);
+          _planetName =
+              "Your Venus on Pluto is ${_finalResult.toStringAsFixed(1)}";
+
+          break;
+        default:
+          print("Nothing selected!");
+      }
+
+//      print("Value is ${radioValue.toString()}");
+    });
+  }
 }
