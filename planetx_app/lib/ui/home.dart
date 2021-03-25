@@ -146,4 +146,13 @@ Pluto: 0.06
 //      print("Value is ${radioValue.toString()}");
     });
   }
+
+  double calculateWeight(String weight, double multiplier) {
+    if (int.parse(weight).toString().isNotEmpty && int.parse(weight) > 0) {
+      return int.parse(weight) * multiplier;
+    } else {
+      print("Wrong!");
+      return int.parse("180") * 0.38; // give a default weight! Be creative!
+    }
+  }
 }
