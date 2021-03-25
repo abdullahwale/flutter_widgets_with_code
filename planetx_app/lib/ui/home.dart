@@ -6,6 +6,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int radioValue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,8 +49,8 @@ class _HomeState extends State<Home> {
                       Radio<int>(
                           activeColor: Colors.brown,
                           value: 0,
-                          groupValue: null, //radioValue
-                          onChanged: null),
+                          groupValue: radioValue, //radioValue
+                          onChanged: handleRadioValueChanged),
                       //handleRadioValueChanged
                       Text(
                         "Pluto",
@@ -58,8 +59,8 @@ class _HomeState extends State<Home> {
                       Radio<int>(
                           activeColor: Colors.red,
                           value: 1,
-                          groupValue: null, //radioValue
-                          onChanged: null),
+                          groupValue: radioValue, //radioValue
+                          onChanged: handleRadioValueChanged),
                       //handleRadioValueChanged
                       Text(
                         "Mars",
@@ -68,9 +69,8 @@ class _HomeState extends State<Home> {
                       Radio<int>(
                           activeColor: Colors.orangeAccent,
                           value: 2,
-                          groupValue: null, //radioValue
-                          onChanged: null //handleRadioValueChanged
-                          ),
+                          groupValue: radioValue, //radioValue
+                          onChanged: handleRadioValueChanged),
                       Text(
                         "Venus",
                         style: TextStyle(color: Colors.white30),
@@ -97,4 +97,6 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  void handleRadioValueChanged(int value) {}
 }
