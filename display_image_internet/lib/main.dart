@@ -13,8 +13,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Image.network(
-            'https://github.com/flutter/plugins/raw/master/packages/video_player/video_player/doc/demo_ipod.gif?raw=true'),
+        body: Image.network('https://picsum.photos/250?image=9'),
       ),
     );
   }
