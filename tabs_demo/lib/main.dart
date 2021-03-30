@@ -10,7 +10,17 @@ class TabBarDemo extends StatelessWidget {
     return MaterialApp(
       home: DefaultTabController(
         length: 3,
-        child: Scaffold(),
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
