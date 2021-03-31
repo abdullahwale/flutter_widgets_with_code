@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp_commit_by_commit/model/todo_item.dart';
+import 'package:todoapp_commit_by_commit/util/database_client.dart';
 
 class todoScreen extends StatefulWidget {
   @override
@@ -8,6 +10,7 @@ class todoScreen extends StatefulWidget {
 class _todoScreenState extends State<todoScreen> {
   final TextEditingController _textEditingController =
       new TextEditingController();
+  var db = new DatabaseHelper();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +46,7 @@ class _todoScreenState extends State<todoScreen> {
       actions: <Widget>[
         FlatButton(
             onPressed: () {
-              //_handleSubmitted(_textEditingController.text);
+              _handleSubmitted(_textEditingController.text);
               _textEditingController.clear();
               Navigator.pop(context);
             },
@@ -57,5 +60,12 @@ class _todoScreenState extends State<todoScreen> {
         builder: (_) {
           return alert;
         });
+  }
+
+  void _handleSubmitted(String text) async {
+    _textEditingController.clear();
+    todo_item item = todo_item(text, DateTime.now().toIso8601String());
+    int savedItem = await db.saveItem(item);
+    print(savedItem);
   }
 }
