@@ -11,6 +11,14 @@ class _todoScreenState extends State<todoScreen> {
   final TextEditingController _textEditingController =
       new TextEditingController();
   var db = new DatabaseHelper();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _readNoDoList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,5 +75,16 @@ class _todoScreenState extends State<todoScreen> {
     todo_item item = todo_item(text, DateTime.now().toIso8601String());
     int savedItem = await db.saveItem(item);
     print(savedItem);
+  }
+
+  void _readNoDoList() async {
+    List items = await db.getItems();
+    items.forEach((item) {
+      todo_item noDoItem = todo_item.fromMap(item);
+      // setState(() {
+      //   _itemList.add(todo_item.map(item));
+      // });
+      print("Db items: ${noDoItem.itemName}");
+    });
   }
 }

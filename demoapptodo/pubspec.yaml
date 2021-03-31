@@ -1,4 +1,4 @@
-name: todoapp_commit_by_commit
+name: demoapptodo
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -28,9 +28,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  sqflite: any
+  sqflite: '>=0.8.5'
   path_provider: any
-  intl: any
+  intl: "^0.15.6"
 
 dev_dependencies:
   flutter_test:
