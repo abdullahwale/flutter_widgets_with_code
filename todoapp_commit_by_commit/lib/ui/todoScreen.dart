@@ -6,6 +6,8 @@ class todoScreen extends StatefulWidget {
 }
 
 class _todoScreenState extends State<todoScreen> {
+  final TextEditingController _textEditingController =
+      new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +24,38 @@ class _todoScreenState extends State<todoScreen> {
   }
 
   void _showFormDialog() {
-    print("FLoating Action button");
+    //print("FLoating Action button");
+    var alert = AlertDialog(
+      content: Row(
+        children: [
+          Expanded(
+              child: TextField(
+            controller: null,
+            autofocus: true,
+            decoration: InputDecoration(
+              labelText: "Item",
+              hintText: "Enter your Item!",
+              icon: Icon(Icons.note_add),
+            ),
+          )),
+        ],
+      ),
+      actions: <Widget>[
+        FlatButton(
+            onPressed: () {
+              //_handleSubmitted(_textEditingController.text);
+              _textEditingController.clear();
+              Navigator.pop(context);
+            },
+            child: Text("Save")),
+        FlatButton(
+            onPressed: () => Navigator.pop(context), child: Text("Cancel"))
+      ],
+    );
+    showDialog(
+        context: context,
+        builder: (_) {
+          return alert;
+        });
   }
 }
